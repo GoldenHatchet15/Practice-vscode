@@ -7,5 +7,5 @@ def test_pow():
     assert math.pow(base, exponent) == 8
     print("{}".format(math.pow(base, exponent)))
 
-# Uncomment the following line if you want to call the test function without using pytest
+if __name__ == "__main__":
 test_pow()
