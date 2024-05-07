@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Planetary Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Sets a clean and modern font */
+            margin: 40px; /* Adds some spacing around the body content */
+            background-color: #f4f4f9; /* Light grey background for less strain on the eyes */
+            color: #333; /* Dark grey text for better readability */
+        }
+        h1 {
+            color: #0056b3; /* Dark blue for the heading */
+            text-align: center; /* Centers the heading */
+        }
+        ul {
+            list-style: none; /* Removes bullet points */
+            padding: 0;
+        }
+        li {
+            padding: 8px; /* Adds padding around each list item */
+            margin: 5px 0; /* Adds margin between list items */
+            background-color: #e0e7ff; /* Light blue background for list items */
+            border-radius: 5px; /* Rounds the corners of the list items */
+        }
+        a {
+            text-decoration: none; /* Removes underline from links */
+            color: #0056b3; /* Sets the link color to match the heading */
+            display: block; /* Makes the link take up the whole list item area for easier clicking */
+        }
+        a:hover {
+            background-color: #b3c7ff; /* Changes background on hover for a visual effect */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Planetary Info Center</h1>
+    <ul>
+        {% for planet in planets %}
+            <li><a href="/planet/{{ planet.name }}">{{ planet.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
