@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from random_number import RandomNumber
+from Basic.random.random_number import RandomNumber
 
 def main(): 
     while True:

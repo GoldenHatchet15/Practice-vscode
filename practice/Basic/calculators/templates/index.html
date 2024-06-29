@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            position: relative;
+        }
+        .calculator {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn-calc {
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+        }
+        .input-calc {
+            font-size: 24px;
+            height: 60px;
+            text-align: right;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+        .dark-mode .calculator {
+            background-color: #444;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        .dark-mode .btn-calc {
+            color: #fff;
+            background-color: #666;
+        }
+        .dark-mode .btn-primary, .dark-mode .btn-success, .dark-mode .btn-danger {
+            color: #fff;
+        }
+        .dark-mode .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .dark-mode .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .dark-mode .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        .dark-mode .form-control {
+            background-color: #555;
+            color: #fff;
+            border: 1px solid #666;
+        }
+        .toggle-dark-mode-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" class="btn btn-secondary toggle-dark-mode-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <div class="calculator">
+        <h1 class="text-center">Simple Calculator</h1>
+        <form method="post" id="calc-form">
+            <div class="form-group">
+                <input type="text" class="form-control input-calc" id="expression" name="expression" value="{{ result|default('') }}" readonly required>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+                <button type="button" class="btn btn-secondary btn-calc" onclick="appendCharacter('1')">1</button>
+                <button type="button" class="btn btn-secondary btn-calc" onclick="appendCharacter('2')">2</button>
+                <button type="button" class="btn btn-secondary btn-calc" onclick="appendCharacter('3')">3</button>
+                <button type="button" class="btn btn-primary btn-calc" onclick="appendCharacter('+')">+</button>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+                <button type="button" class="btn btn-secondary btn-calc" onclick="appendCharacter('4')">4</button>
+                <button type="button" class="btn btn-secondary btn-calc" onclick="appendCharacter('5')">5</button>
+                <button type="button" class="btn btn-secondary btn-calc" onclick="appendCharacter('6')">6</button>
+                <button type="button" class="btn btn-primary btn-calc" onclick="appendCharacter('-')">-</button>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+                <button type="button" class="btn btn-secondary btn-calc" onclick="appendCharacter('7')">7</button>
+                <button type="button" class="btn btn-secondary btn-calc" onclick="appendCharacter('8')">8</button>
+                <button type="button" class="btn btn-secondary btn-calc" onclick="appendCharacter('9')">9</button>
+                <button type="button" class="btn btn-primary btn-calc" onclick="appendCharacter('*')">*</button>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+                <button type="button" class="btn btn-secondary btn-calc" onclick="appendCharacter('0')">0</button>
+                <button type="button" class="btn btn-secondary btn-calc" onclick="appendCharacter('.')">.</button>
+                <button type="button" class="btn btn-danger btn-calc" onclick="clearInput()">C</button>
+                <button type="submit" class="btn btn-success btn-calc">=</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        let resultDisplayed = false;
+
+        function appendCharacter(char) {
+            const expressionField = document.getElementById('expression');
+            if (resultDisplayed) {
+                expressionField.value = char;
+                resultDisplayed = false;
+            } else {
+                expressionField.value += char;
+            }
+        }
+
+        function clearInput() {
+            document.getElementById('expression').value = '';
+            resultDisplayed = false;
+        }
+        
+        document.getElementById('calc-form').addEventListener('submit', function() {
+            resultDisplayed = true;
+        });
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
