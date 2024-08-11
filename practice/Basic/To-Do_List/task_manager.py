@@ -1,10 +1,4 @@
 #!/usr/bin/env python3
-<<<<<<< HEAD
-
-def add_task():
-    task=input("Enter task: ")
-
-=======
 import os
 
 # Initialize the to-do list
@@ -79,4 +73,4 @@ def main():
 
 if __name__ == "__main__":
     main()
->>>>>>> ae33802fda58027e45b7210ddc3757093104a96a
+
