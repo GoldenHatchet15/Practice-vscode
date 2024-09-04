@@ -1,0 +1,17 @@
+
+.navbar-brand img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.nav-item {
+    color: #990202 !important;
+}
+.nav-item:hover {
+    background-color: #f8f9fa;
+    color:  #990202 !important;
+    border-radius: 10px;
+    border: 1px solid  #990202;
+}

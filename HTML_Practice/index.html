@@ -11,11 +11,25 @@
 </head>
 <body>
     <header>
-        <div class="header-section">
-            <link rel="LOGO" href="LOGO.png">
-            <h1>Welcome to the Home Page Header</h1>
-            <p>Click <a href="login.php">here</a> to login</p>
+        <div class="header-logo">
+            <a href="index.html"><img src="images/LOGO.png" alt="Logo"></a>
         </div>
+        <div class="header-title">
+            <h1>Rapha's Piano School</h1>
+        </div>
+        <input type="checkbox" id="menu-btn" class="menu-btn">
+        <label for="menu-btn" class="menu-icon">
+            <span class="menu-icon__line"></span>
+        </label>
+        <nav class="header-navbar navbar-menu" >
+            <ul>
+                <a class= "nav-item" href="index.html">Home</a>
+                <a class= "nav-item" href="about.html">About</a>
+                <a class= "nav-item" href="services.html">Services</a>
+                <a class= "nav-item" href="contact.html">Contact</a>
+                <a class= "nav-item" href="login.php">Login</a>
+            </ul>
+        </nav>
     </header>
 </body>
 <main>
@@ -25,7 +39,7 @@
         <div class="main-container">
             <h1>This is the main bracket header 1</h1>
             <p>this is the paragraph bracket</p>
-            <button href="">Click me</button>
+            <button class="click-btn" href="">Click me</button>
             <p>Click <a href="login.php">here</a> to login</p>
         
     </div>
